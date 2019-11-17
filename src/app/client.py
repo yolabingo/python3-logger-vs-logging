@@ -1,16 +1,19 @@
 import logging
 
 logging.info(' * app.client imported * ')
-
-LOGGER = logging.getLogger(f"[{__name__}]")
-
-LOGGER.info(' * app.client imported * ')
-
+module_logger = logging.getLogger(f"[{__name__}]")
+module_logger.info(' * app.client imported * ')
 
 class Client:
 
+    class_logger = logging.getLogger(f"[{__name__}.Client class]")
+    class_logger.info(' * app.client.Client class defined * ')
+
+    def __init__(self):
+        self.logger = logging.getLogger(f"[{__name__}.Client instance]")
+        self.logger.info(' * app.client.Client instance created * ')
+
     def greet(self):
-        LOGGER = logging.getLogger('[Client.greet]')
-        LOGGER.info(' * logger from Client.greet() * ')
-        logging.info(' * logging from Client.greet() * ')
+        self.logger.info(' * from Client.greet() to instance logger* ')
+        logging.info(' * from Client.greet() to root logger * ')
 
